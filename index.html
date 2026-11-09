@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cellule Cath • Galerie Photo Officielle</title>
+  <meta name="description"
+    content="Découvrez et téléchargez les plus beaux souvenirs de l'événement Cellule Cath en haute définition. Diaporama interactif, mode plein écran et galerie complète.">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Barre de progression au scroll -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Halo lumineux en arrière-plan -->
+  <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow ambient-glow-3" aria-hidden="true"></div>
+
+  <!-- Navigation Header Sticky avec effet de verre au scroll -->
+  <header class="navbar" id="navbar">
+    <div class="nav-content">
+      <a href="#" class="brand">
+        <span class="brand-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+        </span>
+        <span class="brand-text">Cellule Cath</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#visionneuse" class="nav-link">Visionneuse</a>
+        <a href="#galerie" class="nav-link">Galerie (<span class="total-count-nav">100</span>)</a>
+
+        <button id="navSlideshowBtn" class="nav-action-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          <span>Diaporama</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section Hero Haute Gamme -->
+  <section class="hero-section" id="hero">
+    <div class="hero-container">
+
+      <!-- Badge prestige au scroll -->
+      <div class="hero-pill scroll-reveal">
+        <span class="pill-sparkle">✨</span>
+        <span class="pill-text">Galerie Souvenirs d'Événement</span>
+        <span class="pill-dot"></span>
+        <span class="pill-sub">Édition Officielle</span>
+      </div>
+
+      <!-- Titre principal avec la police prestigieuse demandée -->
+      <h1 class="hero-title scroll-reveal delay-1">
+        <span class="welcome-text">Bienvenue</span>
+        <span class="hero-subheading">Trouvez et téléchargez vos plus beaux moments</span>
+      </h1>
+
+      <p class="hero-description scroll-reveal delay-2">
+        Plongez au cœur des instants mémorables de la journée en haute résolution. Parcourez la visionneuse interactive,
+        lancez le diaporama automatique ou téléchargez vos photos d'un simple clic.
+      </p>
+
+      <!-- Boutons d'action héro -->
+      <div class="hero-actions scroll-reveal delay-3">
+        <a href="#visionneuse" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+          <span>Explorer la visionneuse</span>
+        </a>
+
+        <a href="#galerie" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span>Toutes les photos (100)</span>
+        </a>
+      </div>
+
+      <!-- Statistiques et atouts rapides -->
+      <div class="hero-stats scroll-reveal delay-4">
+        <div class="stat-card">
+          <div class="stat-icon">📸</div>
+          <div class="stat-content">
+            <span class="stat-value" id="statPhotoCount">100</span>
+            <span class="stat-label">Photos Haute Définition</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-content">
+            <span class="stat-value">Illimité</span>
+            <span class="stat-label">Téléchargement 100% Gratuit</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🖥️</div>
+          <div class="stat-content">
+            <span class="stat-value">Plein Écran</span>
+            <span class="stat-label">Diaporama & Navigation Clavier</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicateur de scroll vers le bas -->
+      <a href="#visionneuse" class="scroll-down-indicator scroll-reveal delay-4"
+        aria-label="Défiler vers la visionneuse">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+        <span class="scroll-down-text">Faites défiler pour explorer</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Contenu Principal -->
+  <main class="main-content">
+
+    <!-- SECTION 1 : VISIONNEUSE / CARROUSEL AVANCÉ -->
+    <section class="viewer-section" id="visionneuse">
+      <div class="section-container">
+
+        <div class="section-header scroll-reveal">
+          <div class="section-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+            <span>Visionneuse Haute Définition</span>
+          </div>
+          <h2 class="section-title">Chaque détail en grand format</h2>
+          <p class="section-subtitle">Naviguez avec les flèches du clavier ou utilisez le mode diaporama automatique.
+          </p>
+        </div>
+
+        <!-- Boîte de la visionneuse -->
+        <div class="viewer-card scroll-reveal delay-1" id="viewerCard">
+
+          <!-- Barre d'outils supérieure de la visionneuse -->
+          <div class="viewer-toolbar">
+            <div class="viewer-meta">
+              <span class="counter-badge" id="imageCounter">Photo 1 / 100</span>
+              <span class="badge-hd">
+                <span class="badge-hd-full">HD 1080p</span>
+                <span class="badge-hd-short">HD</span>
+              </span>
+            </div>
+
+            <div class="viewer-controls">
+              <!-- Bouton Diaporama -->
+              <button id="slideshowToggleBtn" class="control-btn"
+                title="Lancer / Arrêter le diaporama (Barre d'espace)">
+                <svg class="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <svg class="pause-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"
+                  style="display: none;">
+                  <rect x="6" y="4" width="4" height="16" />
+                  <rect x="14" y="4" width="4" height="16" />
+                </svg>
+                <span id="slideshowText" class="control-btn-label">Diaporama</span>
+              </button>
+
+              <!-- Bouton Plein Écran -->
+              <button id="fullscreenToggleBtn" class="control-btn" title="Mode plein écran (Touche F)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                </svg>
+                <span class="control-btn-label fs-label">Plein écran</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Zone d'affichage image principale -->
+          <div class="viewer-stage" id="viewerStage">
+            <!-- Spinner / shimmer de chargement -->
+            <div class="viewer-loader" id="viewerLoader">
+              <div class="spinner"></div>
+              <span>Chargement du cliché...</span>
+            </div>
+
+            <!-- Image courante -->
+            <img id="carouselImage" src="" alt="Photo de l'événement" class="stage-image">
+
+            <!-- Flèche Gauche -->
+            <button class="nav-arrow nav-arrow-prev" id="prevBtn" aria-label="Photo précédente (Flèche gauche)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <!-- Flèche Droite -->
+            <button class="nav-arrow nav-arrow-next" id="nextBtn" aria-label="Photo suivante (Flèche droite)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+
+            <!-- Barre de progression automatique du diaporama -->
+            <div class="slideshow-progress-bar" id="slideshowBar"></div>
+
+            <!-- Barre d'action inférieure de l'image -->
+            <div class="image-bottom-bar">
+              <div class="image-info">
+                <span class="image-title" id="imageTitle">Photo #1</span>
+                <span class="image-hint">Astuce : vous pouvez naviguer avec ← et →</span>
+              </div>
+
+              <div class="image-actions">
+                <button id="copyLinkBtn" class="btn-action-ghost" title="Copier le lien direct vers cette photo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                  <span>Partager</span>
+                </button>
+
+                <a id="downloadBtn" href="" download class="btn-download-primary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  <span>Télécharger l'image HD</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bandeau de défilement horizontal des miniatures (Filmstrip) -->
+          <div class="filmstrip-container">
+            <div class="filmstrip-label">
+              <span>Bandeau rapide des photos</span>
+              <span class="filmstrip-hint">Cliquez sur une miniature pour y sauter directement</span>
+            </div>
+            <div class="filmstrip-track" id="filmstripTrack">
+              <!-- Généré dynamiquement en JS -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2 : GRILLE GLOBALE DES PHOTOS -->
+    <section class="gallery-section" id="galerie">
+      <div class="section-container">
+
+        <!-- En-tête de la galerie avec barre de recherche & filtre -->
+        <div class="gallery-header-bar scroll-reveal">
+          <div>
+            <div class="section-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+              <span>Galerie Complète</span>
+            </div>
+            <h2 class="section-title">Toutes les photos de l'événement</h2>
+            <p class="section-subtitle">Survolez ou cliquez sur n'importe quel cliché pour l'afficher ou le télécharger.
+            </p>
+          </div>
+
+          <!-- Contrôles de la grille : recherche et disposition -->
+          <div class="grid-controls">
+            <!-- Recherche rapide de photo par numéro -->
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input type="number" id="photoSearchInput" placeholder="N° de photo (1 à 100)..." min="1" max="100">
+              <button id="clearSearchBtn" class="clear-btn" style="display:none;"
+                title="Effacer la recherche">&times;</button>
+            </div>
+
+            <!-- Sélecteur de densité de grille -->
+            <div class="density-switch">
+              <button class="density-btn active" id="densityComfort" title="Vue Confort">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="3" y="3" width="8" height="8" rx="1" />
+                  <rect x="13" y="3" width="8" height="8" rx="1" />
+                  <rect x="3" y="13" width="8" height="8" rx="1" />
+                  <rect x="13" y="13" width="8" height="8" rx="1" />
+                </svg>
+              </button>
+              <button class="density-btn" id="densityCompact" title="Vue Compacte">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="2" y="2" width="5" height="5" />
+                  <rect x="9" y="2" width="5" height="5" />
+                  <rect x="16" y="2" width="5" height="5" />
+                  <rect x="2" y="9" width="5" height="5" />
+                  <rect x="9" y="9" width="5" height="5" />
+                  <rect x="16" y="9" width="5" height="5" />
+                  <rect x="2" y="16" width="5" height="5" />
+                  <rect x="9" y="16" width="5" height="5" />
+                  <rect x="16" y="16" width="5" height="5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compteur de photos affichées -->
+        <div class="grid-status-bar scroll-reveal">
+          <span id="gridCountLabel">Affichage de 100 photos</span>
+          <span class="grid-status-dot"></span>
+          <span>Cliquez pour afficher en grand dans la visionneuse</span>
+        </div>
+
+        <!-- Grille de photos avec animations au scroll -->
+        <div class="photo-grid" id="photoGrid">
+          <!-- Les cartes photos sont générées en JavaScript avec lazy loading et animations d'apparition -->
+        </div>
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- Pied de page élégant -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-text-footer">Cellule Catholique</div>
+        <p class="footer-tagline">Tous les souvenirs précieux de notre événement réunis en haute qualité.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero" class="footer-link">Accueil</a>
+        <a href="#visionneuse" class="footer-link">Visionneuse</a>
+        <a href="#galerie" class="footer-link">Galerie Complète</a>
+        <a href="https://www.tiktok.com/@simock.mncho" target="_blank" rel="noopener noreferrer"
+          class="footer-link footer-link-tiktok">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"
+            style="vertical-align: -2px; margin-right: 5px;">
+            <path
+              d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
+          </svg>
+          TikTok @simock.mncho
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cellule Catholique • Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bouton flottant de retour en haut avec anneau de progression SVG -->
+  <button id="backToTopBtn" class="back-to-top" aria-label="Retourner en haut de page">
+    <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+      <circle class="progress-ring-circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="3" fill="transparent" r="20"
+        cx="24" cy="24" />
+      <circle id="progressCircle" class="progress-ring-circle" stroke="url(#progressGradient)" stroke-width="3"
+        stroke-dasharray="125.66" stroke-dashoffset="125.66" stroke-linecap="round" fill="transparent" r="20" cx="24"
+        cy="24" />
+      <defs>
+        <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#818cf8" />
+          <stop offset="100%" stop-color="#f59e0b" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="arrow-up-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </span>
+  </button>
+
+  <!-- Toast de notification flottante (ex: Téléchargement lancé, lien copié) -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
